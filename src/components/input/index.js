@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Jimp from 'jimp';
 import '../../App.css';
+import Result from '../Result';
 
 
 class Input extends Component {
@@ -10,8 +11,7 @@ class Input extends Component {
     }
 
     inputHandler = (e) =>{
-    	console.log(e)
-    	console.log(e.value);
+    	this.setState({ text: e.target.value })
     };
 
     clickHandler = () =>{
