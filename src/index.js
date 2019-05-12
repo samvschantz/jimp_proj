@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Input from './components/Input'
+import Input from './components/input'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<Input />, document.getElementById('root'));

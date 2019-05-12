@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Jimp from 'jimp';
 import '../../App.css';
-import Result from '../Result';
+import Result from '../result';
 
 
 class Input extends Component {
@@ -10,14 +10,14 @@ class Input extends Component {
     	text: ''
     }
 
-    inputHandler = (e) =>{
-    	this.setState({ text: e.target.value })
-    };
-
     clickHandler = () =>{
     	console.log('hitting this.');
     	this.setState({ textEntered: true });
     };
+
+    inputHandler = (e) =>{
+        this.setState({ text: e.target.value })
+    }
 
 	render(){
 		return (
@@ -26,7 +26,8 @@ class Input extends Component {
 		    <div>
 		      <header className="App-header">
 		        <p>
-		          What do you want your hat to say? 
+              {this.state.apiResponse}
+		          What do you want your hat to say?
 		        </p>
 		      </header>
 		      <input type='text' name='hatText' onInput={this.inputHandler} />
