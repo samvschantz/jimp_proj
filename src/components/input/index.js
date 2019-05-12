@@ -11,7 +11,6 @@ class Input extends Component {
     }
 
     clickHandler = () =>{
-    	console.log('hitting this.');
     	this.setState({ textEntered: true });
     };
 

@@ -4,14 +4,13 @@ import '../../App.css';
 
 
 function Result(props){
-
+  const [imgPath, setData] = useState("");
 	useEffect(() => {
-		console.log(props.text);
 		callAPI(props.text);
 	})
 
   function callAPI(hatText){
-  	let hatTextObj =  JSON.stringify({text: hatText});
+  		let hatTextObj =  JSON.stringify({text: hatText});
       fetch("http://localhost:3002/hatRoute", {
 					  	method: "POST",
 						  headers: {
@@ -19,17 +18,14 @@ function Result(props){
 						  },
 						  body: hatTextObj
 					  })
-					  .then((result) => {
-					    console.log(result)
-					  })
-
-          // .then(res => res.text())
-          // .then(res => this.setState({ apiResponse: res }));
+          .then(res => res.text())
+          .then(res => setData("http://localhost:3002/" + res.substring(7)));
   }
 
 	return(
 		<div>
 			<p>This your hat:</p>
+			<img src={imgPath} />
 		</div>
 	)
 }
